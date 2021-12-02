@@ -41,9 +41,12 @@ class Directify {
         }
 
         this.fetchUrl(url, (body) => {
-            /*body.split(/\r\n|\n/).forEach((ln) => {
-                body = this.replaceUrls(body, ln)
-            })*/
+            body.split(/\r\n|\n/).forEach((ln) => {
+                this.replaceUrls(ln, (newln) => {
+                    body = body.replaceAll(ln, newln)
+                })
+            })
+
             let blob = new Blob([body], { type: this.getType(url) })
             callback(blob)
         })
@@ -64,17 +67,17 @@ class Directify {
     }
 
     // public methods
-    public crawl(url: string) {
+    public crawl(url: string, callback: Function) {
         this.fetchUrl(url, (body) => {
             body.split(/\r\n|\n/).forEach((ln) => {
                 this.replaceUrls(ln, (newln) => {
                     body = body.replaceAll(ln, newln)
-                    console.log(body)
-
                 })
             })
 
-            return body
+            setTimeout(() => {
+                callback(body)
+            }, 1);
         })
     }
 }

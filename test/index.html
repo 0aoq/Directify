@@ -25,7 +25,9 @@
             url: 'http://127.0.0.1:5500'
         })
 
-        console.log(app.crawl('http://127.0.0.1:5500/test/index.html'))
+        app.crawl('http://127.0.0.1:5500/test/index.html', (body) => {
+            console.log(body)
+        })
     </script>
 </body>
 
