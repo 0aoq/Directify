@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;directify&gt;</title>
+
+    <link rel="stylesheet" href="https://zerocore.vercel.app/v1/styles.css">
+</head>
+
+<body>
+    <app>
+        <div class="w-60">
+            <button class="btn__open group w-full">Check console for replaced body!
+                <p class="tooltip">(Check links such as &lt;link&gt; or &lt;script&gt;)</p>
+            </button>
+        </div>
+    </app>
+
+    <script src="../package/compiled/directify.js"></script>
+    <script>
+        const app = new Directify({
+            url: 'http://127.0.0.1:5500'
+        })
+
+        console.log(app.crawl('http://127.0.0.1:5500/test/index.html'))
+    </script>
+</body>
+
+</html>
