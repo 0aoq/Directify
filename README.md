@@ -1,6 +1,6 @@
 # Directify
 
-Basic page content parsing to replace links with blob urls for emulating realtive paths such as `./index.js` or just `index.js`
+Basic page content parsing to replace links with blob urls for resolving relative paths such as `./index.js` or just `index.js`
 
 - Attempts to fetch the base url of files under `website_url/relative_path`
 - Returns replaced body content of searched file, containing replaced urls
